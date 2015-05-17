@@ -5,6 +5,7 @@ angular
 
   function mainController($http) {
     var mainCtrl = this;
+    var accessToken = "1337";
     mainCtrl.text = 'rob';
     mainCtrl.car = {};
     mainCtrl.addCar = addCar;
@@ -26,7 +27,7 @@ angular
     }
     function getCars() {
       var cars;
-      $http.get('/cars')
+      $http.get('/cars?access_token='+accessToken)
         .success(function(data,status) {
           mainCtrl.cars = data;
           console.log(data);
